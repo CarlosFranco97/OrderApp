@@ -1,6 +1,6 @@
 package com.example.PedidosApp.modelo;
 
-import com.example.PedidosApp.ayudas.enums.UsuarioEnum;
+import com.example.PedidosApp.helpers.enums.UserEnum;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,15 +10,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Integer id;
-    @Column(name = "nombre", length = 100, unique = true, nullable = false)
+
+    @Column(name = "nombre", length = 100, nullable = false)
     private String name;
+
+    @Column(length = 150, unique = true, nullable = false)
     private String email;
-    @Column(name = "contraseña")
+
+    @Column(name = "contraseña", nullable = false)
     private String password;
-    @Column(name = "telefono")
+
+    @Column(name = "telefono", length = 20)
     private String phone;
-    @Column(name = "tipo_usuario")
-    private UsuarioEnum type;
+
+    @Column(name = "tipo_usuario", nullable = false)
+    private UserEnum type;
 
     public void Usuario(){
 
@@ -27,13 +33,13 @@ public class User {
     public User(){
 
     }
-    public User(Integer id, String nombre, String correoElectronico, String contraseña, String telefono, UsuarioEnum tipoUsuario) {
+    public User(Integer id, String name, String email, String password, String phone, UserEnum type) {
         this.id = id;
-        this.nombre = nombre;
-        this.correoElectronico = correoElectronico;
-        this.contraseña = contraseña;
-        this.telefono = telefono;
-        this.tipoUsuario = tipoUsuario;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.type = type;
     }
 
     public Integer getId() {
@@ -44,43 +50,43 @@ public class User {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = User.this.password;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public UsuarioEnum getTipoUsuario() {
-        return tipoUsuario;
+    public UserEnum getType() {
+        return type;
     }
 
-    public void setTipoUsuario(UsuarioEnum tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+    public void setType(UserEnum type) {
+        this.type = type;
     }
 }
