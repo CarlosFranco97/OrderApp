@@ -4,28 +4,30 @@ import com.example.PedidosApp.ayudas.enums.UsuarioEnum;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "usuario_tabla")
-public class Usuario {
+@Table(name = "Usuario")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Integer id;
-    @Column(name = "nombre_usuario", length = 100, unique = true, nullable = false)
-    private String nombre;
-    @Column(name = "correo_electronico")
-    private String correoElectronico;
-    private String contraseña;
-    private String telefono;
-    private UsuarioEnum tipoUsuario;
+    @Column(name = "nombre", length = 100, unique = true, nullable = false)
+    private String name;
+    private String email;
+    @Column(name = "contraseña")
+    private String password;
+    @Column(name = "telefono")
+    private String phone;
+    @Column(name = "tipo_usuario")
+    private UsuarioEnum type;
 
     public void Usuario(){
 
     }
 
-    public Usuario(){
+    public User(){
 
     }
-    public Usuario(Integer id, String nombre, String correoElectronico, String contraseña, String telefono, UsuarioEnum tipoUsuario) {
+    public User(Integer id, String nombre, String correoElectronico, String contraseña, String telefono, UsuarioEnum tipoUsuario) {
         this.id = id;
         this.nombre = nombre;
         this.correoElectronico = correoElectronico;
