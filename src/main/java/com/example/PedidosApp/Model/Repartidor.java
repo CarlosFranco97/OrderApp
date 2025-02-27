@@ -1,6 +1,4 @@
-package com.example.PedidosApp.modelo;
-
-import jakarta.persistence.criteria.CriteriaBuilder;
+package com.example.PedidosApp.Model;
 
 public class Repartidor {
     private Integer id;
