@@ -1,6 +1,6 @@
-package com.example.PedidosApp.Model;
+package com.example.OrderApp.models;
 
-import com.example.PedidosApp.helpers.enums.UserEnum;
+import com.example.OrderApp.helpers.enums.UserEnum;
 import jakarta.persistence.*;
 
 @Entity

@@ -1,4 +1,4 @@
-package com.example.PedidosApp.Model;
+package com.example.OrderApp.models;
 
 import jakarta.persistence.*;
 
