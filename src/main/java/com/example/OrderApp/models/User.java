@@ -26,10 +26,6 @@ public class User {
     @Column(name = "tipo_usuario", nullable = false)
     private UserEnum userType;
 
-    public void Usuario(){
-
-    }
-
     public User(){
 
     }

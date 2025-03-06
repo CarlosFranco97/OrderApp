@@ -33,11 +33,11 @@ public class Order {
 
     }
 
-    public Order(BigDecimal total, LocalDateTime orderDate, OrderEnum orderStatus, Integer id) {
+    public Order(Integer id, BigDecimal total, LocalDateTime orderDate, OrderEnum orderStatus) {
+        this.id = id;
         this.total = total;
         this.orderDate = orderDate;
         this.orderStatus = orderStatus;
-        this.id = id;
     }
 
     public BigDecimal getTotal() {
