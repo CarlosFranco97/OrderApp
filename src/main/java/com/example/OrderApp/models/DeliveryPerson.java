@@ -1,6 +1,9 @@
 package com.example.OrderApp.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Repartidor")
@@ -21,6 +24,10 @@ public class DeliveryPerson {
 
     @Column(name = "vehiculo", length = 50)
     private String vehicle;
+
+    @OneToMany(mappedBy = "deliveryPerson")
+    @JsonManagedReference
+    private List<Delivery> deliveries;
 
     public DeliveryPerson(){
 

@@ -2,9 +2,11 @@ package com.example.OrderApp.models;
 
 import com.example.OrderApp.helpers.enums.PaymentMethodEnum;
 import com.example.OrderApp.helpers.enums.StatusPayEnum;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "Pago")
@@ -13,7 +15,6 @@ public class Pay {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pago")
     private Integer id;
-    /* id delivery FK */
 
     @Column(name = "metodo_pago", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -25,6 +26,12 @@ public class Pay {
 
     @Column(name = "fecha_pago", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime dateOfPayment;
+
+    @OneToMany(mappedBy = "pay")
+    @JsonManagedReference
+    private List<Order> orders;
+
+
 
     public Pay(){
 

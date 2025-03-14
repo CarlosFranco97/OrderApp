@@ -1,6 +1,7 @@
 package com.example.OrderApp.models;
 
 import com.example.OrderApp.helpers.enums.StatusDeliveryEnum;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -14,15 +15,17 @@ public class Delivery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    /* id_pedido */
-    /* id_repartidor */
-
     @Column(name = "fecha_entrega", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime dateDelivery;
 
     @Column(name = "estado_entrega", columnDefinition = "VARCHAR(10) DEFAULT 'ASSIGNED'")
     @Enumerated(EnumType.STRING)
     private StatusDeliveryEnum deliveryStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_deliveryperson", referencedColumnName = "id")
+    @JsonBackReference
+    private DeliveryPerson deliveryPerson;
 
     public Delivery() {
     }

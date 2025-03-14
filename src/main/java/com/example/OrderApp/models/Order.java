@@ -1,6 +1,7 @@
 package com.example.OrderApp.models;
 
 import com.example.OrderApp.helpers.enums.OrderEnum;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -28,6 +29,25 @@ public class Order {
 
     @Column(nullable = false)
     private BigDecimal total;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_user", referencedColumnName = "orders")
+    @JsonBackReference
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_pay", referencedColumnName = "id")
+    private Pay pay;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_store", referencedColumnName = "id")
+    @JsonBackReference
+    private Store store;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_detail", referencedColumnName = "id")
+    @JsonBackReference
+    private DetailOrder detailOrder;
 
     public Order(){
 

@@ -1,5 +1,6 @@
 package com.example.OrderApp.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -23,6 +24,15 @@ public class Product {
 
     @Column(name = "descripcion")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_store", referencedColumnName = "id")
+    @JsonBackReference
+    private Store store;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_detail", referencedColumnName = "id")
+    private DetailOrder detailOrder;
 
     public Product() {
     }

@@ -1,5 +1,6 @@
 package com.example.OrderApp.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -22,6 +23,11 @@ public class Address {
 
     @Column(name = "pais", length = 50, nullable = false)
     private String country;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_user", referencedColumnName = "id")
+    @JsonBackReference
+    private User user;
 
     public Address() {
     }

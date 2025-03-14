@@ -1,8 +1,10 @@
 package com.example.OrderApp.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "DetallePedido")
@@ -11,14 +13,21 @@ public class DetailOrder {
     @Column(name = "id_detalle")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    /* detalle pedido fk */
-    /* detalle producto fk */
 
     @Column(name = "cantidad", nullable = false)
     private Integer quantityOrder;
 
     @Column(name = "subtotal", nullable = false)
     private BigDecimal subTotalOrder;
+
+    @OneToMany(mappedBy = "detailOrder")
+    @JsonManagedReference
+    private List<Order> orders;
+
+    @OneToMany(mappedBy = "detailOrder")
+    @JsonManagedReference
+    private List<Product> products;
+
 
     public DetailOrder(){
 
