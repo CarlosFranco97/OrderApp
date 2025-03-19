@@ -31,7 +31,7 @@ public class Order {
     private BigDecimal total;
 
     @ManyToOne
-    @JoinColumn(name = "fk_user", referencedColumnName = "orders")
+    @JoinColumn(name = "fk_user", referencedColumnName = "id")
     @JsonBackReference
     private User user;
 
