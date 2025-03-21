@@ -28,7 +28,7 @@ public class Store {
 
     @OneToMany(mappedBy = "store")
     @JsonManagedReference
-    private List<Store> stores;
+    private List<Order> orders;
 
     @OneToMany(mappedBy = "store")
     @JsonManagedReference

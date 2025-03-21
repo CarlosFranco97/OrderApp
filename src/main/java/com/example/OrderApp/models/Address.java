@@ -10,7 +10,6 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_direccion")
     private Integer id;
-    /* id user fk */
 
     @Column(name = "calle", nullable = false)
     private String street;

@@ -16,10 +16,6 @@ public class Order {
     @Column(name = "id_pedido")
     private Integer id;
 
-    /* id_user FK*/
-
-    /* id_store FK */
-
     @Column(name = "estado", columnDefinition = "VARCHAR(10) DEFAULT 'PENDING'")
     @Enumerated(EnumType.STRING)
     private OrderEnum orderStatus;
@@ -37,6 +33,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "fk_pay", referencedColumnName = "id")
+    @JsonBackReference
     private Pay pay;
 
     @ManyToOne
