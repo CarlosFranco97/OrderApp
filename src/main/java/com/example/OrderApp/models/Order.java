@@ -34,7 +34,7 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "fk_pay", referencedColumnName = "id")
     @JsonBackReference
-    private Pay pay;
+    private Payment pay;
 
     @ManyToOne
     @JoinColumn(name = "fk_store", referencedColumnName = "id")

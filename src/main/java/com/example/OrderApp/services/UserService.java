@@ -28,7 +28,7 @@ public class UserService {
 
 
     //buscar todos los registros
-    public List<User> getAllUser() throws Exception{
+    public List<User> getAllUsers() throws Exception{
         try {
             return this.repository.findAll();
         } catch (Exception error) {
@@ -37,11 +37,11 @@ public class UserService {
     }
 
     //buscar por id
-    public Optional<User> getUserById(Integer id) throws Exception {
+    public User getUserById(Integer id) throws Exception {
         try {
-            if (this.repository.findById(id).isPresent()) {
-                return this.repository.findById(id);
-
+            Optional<User> searchedUser = this.repository.findById(id);
+            if (searchedUser.isPresent()) {
+                return searchedUser.get();
             } else {
                 throw new Exception("El usuario no fue encontrado en la base de datos");
             }
@@ -51,13 +51,13 @@ public class UserService {
     }
 
     //modificar por id
-    public User modifyUser(Integer id, User user) throws Exception{
+    public User modifyUser(Integer id, User updatedUser) throws Exception{
         try {
             Optional<User> searchedUser = this.repository.findById(id);
             if(searchedUser.isPresent()){
-                searchedUser.get().setUserPhone(user.getUserPhone());
-                searchedUser.get().setUserEmail(user.getUserEmail());
-                return this.repository.save(user);
+                searchedUser.get().setUserPhone(updatedUser.getUserPhone());
+                searchedUser.get().setUserEmail(updatedUser.getUserEmail());
+                return this.repository.save(searchedUser.get());
             } else {
                 throw new Exception("Usuario no encontrado");
             }

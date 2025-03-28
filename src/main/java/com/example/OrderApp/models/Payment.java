@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Pago")
-public class Pay {
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pago")
@@ -33,11 +33,11 @@ public class Pay {
 
 
 
-    public Pay(){
+    public Payment(){
 
     }
 
-    public Pay(Integer id, PaymentMethodEnum paymentMethod, StatusPayEnum statusPayment, LocalDateTime dateOfPayment) {
+    public Payment(Integer id, PaymentMethodEnum paymentMethod, StatusPayEnum statusPayment, LocalDateTime dateOfPayment) {
         this.id = id;
         this.paymentMethod = paymentMethod;
         this.statusPayment = statusPayment;
