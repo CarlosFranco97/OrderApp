@@ -25,7 +25,7 @@ public class AddressController {
     }
 
     @GetMapping
-    public ResponseEntity<?> getAllAdresses(){
+    public ResponseEntity<?> getAllAddresses(){
         try {
           return new ResponseEntity<>(this.service.getAllAddresses(), HttpStatus.OK);
         } catch (Exception error){
@@ -39,6 +39,24 @@ public class AddressController {
             return new ResponseEntity<>(this.service.getAddressById(id), HttpStatus.OK);
         } catch (Exception error) {
             return new ResponseEntity<>(error.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> modifyAddress(@PathVariable Integer id, @RequestBody Address updatedAddress){
+        try {
+            return new ResponseEntity<>(this.service.modifyAddress(id, updatedAddress), HttpStatus.OK);
+        } catch(Exception error){
+            return new ResponseEntity<>(error.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteAddressById(@PathVariable Integer id) {
+        try {
+            return new ResponseEntity<>(this.service.deleteAddressById(id), HttpStatus.OK);
+        } catch (Exception error) {
+            return new ResponseEntity<>(error.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 }
