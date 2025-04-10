@@ -14,8 +14,6 @@ public class Product {
     @Column(name = "id_producto")
     private Integer id;
 
-    /*id_restaurante FK*/
-
     @Column(name = "nombre", length = 100, nullable = false)
     private String productName;
 
@@ -26,12 +24,12 @@ public class Product {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "fk_store", referencedColumnName = "id")
+    @JoinColumn(name = "fk_store", referencedColumnName = "id_tienda")
     @JsonBackReference
     private Store store;
 
     @ManyToOne
-    @JoinColumn(name = "fk_detail", referencedColumnName = "id")
+    @JoinColumn(name = "fk_detail", referencedColumnName = "id_detalle")
     private DetailOrder detailOrder;
 
     public Product() {

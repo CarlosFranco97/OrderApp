@@ -23,9 +23,17 @@ public class Address {
     @Column(name = "pais", length = 50, nullable = false)
     private String country;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @ManyToOne
-    @JoinColumn(name = "fk_user", referencedColumnName = "id")
-    @JsonBackReference
+    @JoinColumn(name = "fk_user", referencedColumnName = "id_usuario")
+    //@JsonBackReference(value = "user-addresses")
     private User user;
 
     public Address() {

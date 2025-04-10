@@ -2,13 +2,10 @@ package com.example.OrderApp.controllers;
 
 import com.example.OrderApp.models.User;
 import com.example.OrderApp.services.UserService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/user")

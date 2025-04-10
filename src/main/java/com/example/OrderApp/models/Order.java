@@ -27,23 +27,23 @@ public class Order {
     private BigDecimal total;
 
     @ManyToOne
-    @JoinColumn(name = "fk_user", referencedColumnName = "id")
-    @JsonBackReference
+    @JoinColumn(name = "fk_user", referencedColumnName = "id_usuario")
+    //@JsonBackReference(value = "user-orders")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "fk_pay", referencedColumnName = "id")
-    @JsonBackReference
+    @JoinColumn(name = "fk_pay", referencedColumnName = "id_pago")
+    //@JsonBackReference(value = "pay-orders")
     private Payment pay;
 
     @ManyToOne
-    @JoinColumn(name = "fk_store", referencedColumnName = "id")
-    @JsonBackReference
+    @JoinColumn(name = "fk_store", referencedColumnName = "id_tienda")
+    //@JsonBackReference(value = "store-orders")
     private Store store;
 
     @ManyToOne
-    @JoinColumn(name = "fk_detail", referencedColumnName = "id")
-    @JsonBackReference
+    @JoinColumn(name = "fk_detail", referencedColumnName = "id_detalle")
+    //@JsonBackReference(value = "detailOrder-orders")
     private DetailOrder detailOrder;
 
     public Order(){

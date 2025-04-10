@@ -30,11 +30,11 @@ public class User {
     private UserEnum userType;
 
     @OneToMany(mappedBy = "user")
-    @JsonManagedReference
+    /*@JsonManagedReference(value = "user-addresses")*/
     private List<Address> addresses;
 
     @OneToMany(mappedBy = "user")
-    @JsonManagedReference
+   /* @JsonManagedReference(value = "user-orders") */
     private List<Order> orders;
 
     public User(){
@@ -78,11 +78,27 @@ public class User {
     }
 
     public void setUserPassword(String userPassword) {
-        this.userPassword = User.this.userPassword;
+        this.userPassword = userPassword;
     }
 
     public String getUserPhone() {
         return userPhone;
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     public void setUserPhone(String userPhone) {

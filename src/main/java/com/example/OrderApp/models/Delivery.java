@@ -23,8 +23,8 @@ public class Delivery {
     private StatusDeliveryEnum deliveryStatus;
 
     @ManyToOne
-    @JoinColumn(name = "fk_deliveryperson", referencedColumnName = "id")
-    @JsonBackReference
+    @JoinColumn(name = "fk_deliveryperson", referencedColumnName = "id_repartidor")
+    //@JsonBackReference
     private DeliveryPerson deliveryPerson;
 
     public Delivery() {

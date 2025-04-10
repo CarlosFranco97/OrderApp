@@ -26,7 +26,7 @@ public class DeliveryPerson {
     private String vehicle;
 
     @OneToMany(mappedBy = "deliveryPerson")
-    @JsonManagedReference
+    //@JsonManagedReference
     private List<Delivery> deliveries;
 
     public DeliveryPerson(){

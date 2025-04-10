@@ -21,11 +21,11 @@ public class DetailOrder {
     private BigDecimal subTotalOrder;
 
     @OneToMany(mappedBy = "detailOrder")
-    @JsonManagedReference
+    //@JsonManagedReference
     private List<Order> orders;
 
     @OneToMany(mappedBy = "detailOrder")
-    @JsonManagedReference
+    //@JsonManagedReference
     private List<Product> products;
 
 
