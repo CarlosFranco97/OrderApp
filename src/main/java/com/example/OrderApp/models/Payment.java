@@ -28,7 +28,7 @@ public class Payment {
     private LocalDateTime dateOfPayment;
 
     @OneToMany(mappedBy = "pay")
-    //@JsonManagedReference
+    @JsonManagedReference(value = "pay-orders")
     private List<Order> orders;
 
 
